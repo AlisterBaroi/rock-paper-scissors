@@ -3,34 +3,32 @@
 myList = {}
 
 def player(prev_play, opponent_history=[]):
-  # global myList
-  n = 6
-
-  if prev_play in ["R","P","S"]:
+  if prev_play in ['R','P','S']:
     opponent_history.append(prev_play)
-  guess = "R" # default, until statistic kicks in
+  guess = 'R'
 
-  if len(opponent_history)>n:
-    inp = "".join(opponent_history[-n:])
-    if "".join(opponent_history[-(n+1):]) in myList.keys():
-      myList["".join(opponent_history[-(n+1):])]+=1
+  depth = 6
+  if len(opponent_history)>depth:
+    inp = ''.join(opponent_history[-depth:])
+    if ''.join(opponent_history[-(depth+1):]) in myList.keys():
+      myList[''.join(opponent_history[-(depth+1):])]+=1
     else:
-      myList["".join(opponent_history[-(n+1):])]=1
+      myList[''.join(opponent_history[-(depth+1):])]=1
 
-    possible =[inp+"R", inp+"P", inp+"S"]
+    doable = [inp+'R', inp+'P', inp+'S']
 
-    for i in possible:
+    for i in doable:
       if not i in myList.keys():
         myList[i] = 0
 
-    predict = max(possible, key=lambda key: myList[key])
+    predictions = max(doable, key=lambda key: myList[key])
 
-    if predict[-1] == "P":
-      guess = "S"
-    if predict[-1] == "R":
-      guess = "P"
-    if predict[-1] == "S":
-      guess = "R"
+    if predictions[-1] == 'P':
+      guess = 'S'
+    if predictions[-1] == 'R':
+      guess = 'P'
+    if predictions[-1] == 'S':
+      guess = 'R'
 
 
   return guess

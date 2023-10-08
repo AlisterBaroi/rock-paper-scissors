@@ -1,4 +1,7 @@
 # rock-paper-scissors (freeCodeCamp Assignment)
+![image](https://github.com/AlisterBaroi/rock-paper-scissors/assets/44337842/a237f8e5-1180-4ca9-b182-ee825631aefd)
+
+
 ### Assignment
 
 For this challenge, you will create a program to play Rock, Paper, Scissors. A program that picks at random will usually win 50% of the time. To pass this challenge your program must play matches against four different bots, winning at least 60% of the games in each match.
